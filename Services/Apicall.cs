@@ -2,6 +2,8 @@ using System.Net.Security;
 using System.Text;
 using System.Net;
 using System.IO;
+using System.Net.Http;
+
 
 namespace NetboxBulkConnect.Misc
 {
@@ -43,7 +45,7 @@ namespace NetboxBulkConnect.Misc
 		public static RequestResponse RetrieveRequest(string endpoint, RetrieveType type)
 		{
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"{GetServer()}/api/{endpoint}");
-			request.Headers.Add("Authorization", $"Token {Config.GetConfig().ApiToken}");
+			request.Headers.Add("Authorization", $"Bearer 022dfcb3-7984-4069-a6ea-b2c07b3f729c");
 			request.Method = type.ToString();
 
 			HttpWebResponse webResponse;
